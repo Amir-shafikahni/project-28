@@ -374,6 +374,8 @@ let cardItemsArray = [
   },
 ];
 
+// number of rows per page
+let rowCounter = 5
 
 // fucntions ////////////////
 // to change minHeight of body by window resize event
@@ -385,7 +387,7 @@ function liveUserScreenHeight() {
 // to set start and end slice Indexes on window laod
 function setStartAndEndSliceIndex() {
   let slicerStratIndex = 0;
-  let slicerEndIndex = 8;
+  let slicerEndIndex = rowCounter;
 
   cardItemsArraySlicer(slicerStratIndex, slicerEndIndex);
 }
@@ -452,9 +454,9 @@ function domUpdater(cardArray) {
 // to update the pagiantion Btn numbers based on the main array lenght
 // and then append them to dom
 function paginationBtnsUpdater() {
-  let btnsCount = Math.floor(cardItemsArray.length / 8);
+  let btnsCount = Math.floor(cardItemsArray.length / rowCounter);
 
-  if (cardItemsArray.length % 8) {
+  if (cardItemsArray.length % rowCounter) {
     btnsCount++;
   }
 
@@ -483,8 +485,8 @@ function activeClassAndIndexChanger(event) {
   event.target.classList.add("active");
   event.target.blur();
 
-  slicerStratIndex = event.target.innerHTML * 8 - 8;
-  slicerEndIndex = event.target.innerHTML * 8;
+  slicerStratIndex = event.target.innerHTML * rowCounter - rowCounter;
+  slicerEndIndex = event.target.innerHTML * rowCounter;
 
   cardItemsArraySlicer(slicerStratIndex, slicerEndIndex);
 }
