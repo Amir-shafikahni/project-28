@@ -375,7 +375,7 @@ let cardItemsArray = [
 ];
 
 // number of rows per page
-let rowCounter = 5
+let rowCounter = 8
 
 // fucntions ////////////////
 // to change minHeight of body by window resize event
