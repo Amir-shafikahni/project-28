@@ -4,6 +4,7 @@ let $ = document;
 
 // variables ///////////////
 const body = $.body;
+const cartProductsCountIcon = $.querySelector(".productsCount")
 const paginationCardContainerRow = $.querySelector(
   ".paginationCardContainer .row"
 );
@@ -17,362 +18,409 @@ let cardItemsArray = [
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "100$",
+    price: "100",
     src: "./Source/Media/Img/card-img-1.png",
+    countInCart:1
   },
   {
     id: 2,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "200$",
+    price: "200",
     src: "./Source/Media/Img/card-img-2.png",
+    countInCart:1
   },
   {
     id: 3,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "300$",
+    price: "300",
     src: "./Source/Media/Img/card-img-3.png",
+    countInCart:1
   },
   {
     id: 4,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "400$",
+    price: "400",
     src: "./Source/Media/Img/card-img-4.png",
+    countInCart:1
   },
   {
     id: 5,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "500$",
+    price: "500",
     src: "./Source/Media/Img/card-img-5.png",
+    countInCart:1
   },
   {
     id: 6,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "600$",
+    price: "600",
     src: "./Source/Media/Img/card-img-6.png",
+    countInCart:1
   },
   {
     id: 7,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "700$",
+    price: "700",
     src: "./Source/Media/Img/card-img-7.png",
+    countInCart:1
   },
   {
     id: 8,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "800$",
+    price: "800",
     src: "./Source/Media/Img/card-img-8.png",
+    countInCart:1
   },
   {
     id: 9,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "900$",
+    price: "900",
     src: "./Source/Media/Img/card-img-9.png",
+    countInCart:1
   },
   {
     id: 10,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1000$",
+    price: "1000",
     src: "./Source/Media/Img/card-img-10.png",
+    countInCart:1
   },
   {
     id: 11,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1100$",
+    price: "1100",
     src: "./Source/Media/Img/card-img-11.png",
+    countInCart:1
   },
   {
     id: 12,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1200$",
+    price: "1200",
     src: "./Source/Media/Img/card-img-12.png",
+    countInCart:1
   },
   {
     id: 13,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1300$",
+    price: "1300",
     src: "./Source/Media/Img/card-img-13.png",
+    countInCart:1
   },
   {
     id: 14,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1400$",
+    price: "1400",
     src: "./Source/Media/Img/card-img-14.png",
+    countInCart:1
   },
   {
     id: 15,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1500$",
+    price: "1500",
     src: "./Source/Media/Img/card-img-15.png",
+    countInCart:1
   },
   {
     id: 16,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1600$",
+    price: "1600",
     src: "./Source/Media/Img/card-img-16.png",
+    countInCart:1
   },
   {
     id: 17,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1700$",
+    price: "1700",
     src: "./Source/Media/Img/card-img-17.png",
+    countInCart:1
   },
   {
     id: 18,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1800$",
+    price: "1800",
     src: "./Source/Media/Img/card-img-18.png",
+    countInCart:1
   },
   {
     id: 19,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "1900$",
+    price: "1900",
     src: "./Source/Media/Img/card-img-19.png",
+    countInCart:1
   },
   {
     id: 20,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2000$",
+    price: "2000",
     src: "./Source/Media/Img/card-img-20.png",
+    countInCart:1
   },
   {
     id: 21,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2100$",
+    price: "2100",
     src: "./Source/Media/Img/card-img-21.png",
+    countInCart:1
   },
   {
     id: 22,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2200$",
+    price: "2200",
     src: "./Source/Media/Img/card-img-22.png",
+    countInCart:1
   },
   {
     id: 23,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2300$",
+    price: "2300",
     src: "./Source/Media/Img/card-img-23.png",
+    countInCart:1
   },
   {
     id: 24,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2400$",
+    price: "2400",
     src: "./Source/Media/Img/card-img-24.png",
+    countInCart:1
   },
   {
     id: 25,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2500$",
+    price: "2500",
     src: "./Source/Media/Img/card-img-25.png",
+    countInCart:1
   },
   {
     id: 26,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2600$",
+    price: "2600",
     src: "./Source/Media/Img/card-img-26.png",
+    countInCart:1
   },
   {
     id: 27,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2700$",
+    price: "2700",
     src: "./Source/Media/Img/card-img-27.png",
+    countInCart:1
   },
   {
     id: 28,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2800$",
+    price: "2800",
     src: "./Source/Media/Img/card-img-28.png",
+    countInCart:1
   },
   {
     id: 29,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "2900$",
+    price: "2900",
     src: "./Source/Media/Img/card-img-29.png",
+    countInCart:1
   },
   {
     id: 30,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3000$",
+    price: "3000",
     src: "./Source/Media/Img/card-img-30.png",
+    countInCart:1
   },
   {
     id: 31,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3100$",
+    price: "3100",
     src: "./Source/Media/Img/card-img-31.png",
+    countInCart:1
   },
   {
     id: 32,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3200$",
+    price: "3200",
     src: "./Source/Media/Img/card-img-32.png",
+    countInCart:1
   },
   {
     id: 33,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3300$",
+    price: "3300",
     src: "./Source/Media/Img/card-img-33.png",
+    countInCart:1
   },
   {
     id: 34,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3400$",
+    price: "3400",
     src: "./Source/Media/Img/card-img-34.png",
+    countInCart:1
   },
   {
     id: 35,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3500$",
+    price: "3500",
     src: "./Source/Media/Img/card-img-35.png",
+    countInCart:1
   },
   {
     id: 36,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3600$",
+    price: "3600",
     src: "./Source/Media/Img/card-img-36.png",
+    countInCart:1
   },
   {
     id: 37,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3700$",
+    price: "3700",
     src: "./Source/Media/Img/card-img-37.png",
+    countInCart:1
   },
   {
     id: 38,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3800$",
+    price: "3800",
     src: "./Source/Media/Img/card-img-38.png",
+    countInCart:1
   },
   {
     id: 39,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "3900$",
+    price: "3900",
     src: "./Source/Media/Img/card-img-39.png",
+    countInCart:1
   },
   {
     id: 40,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "4000$",
+    price: "4000",
     src: "./Source/Media/Img/card-img-40.png",
+    countInCart:1
   },
   {
     id: 41,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "4100$",
+    price: "4100",
     src: "./Source/Media/Img/card-img-41.png",
+    countInCart:1
   },
   {
     id: 42,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "4200$",
+    price: "4200",
     src: "./Source/Media/Img/card-img-42.png",
+    countInCart:1
   },
   {
     id: 43,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "4300$",
+    price: "4300",
     src: "./Source/Media/Img/card-img-43.png",
+    countInCart:1
   },
   {
     id: 44,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "4400$",
+    price: "4400",
     src: "./Source/Media/Img/card-img-44.png",
+    countInCart:1
   },
   {
     id: 45,
     title: "lorem Ipsum",
     detail:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
-    price: "4500$",
+    price: "4500",
     src: "./Source/Media/Img/card-img-45.png",
+    countInCart:1
   },
 ];
+
+let cartItemsArray =[]
 
 // number of rows per page
 let rowCounter = 8
@@ -433,13 +481,15 @@ function domUpdater(cardArray) {
 
     let cardPrice = $.createElement("h6");
     cardPrice.className = "cardPrice text-end me-3 mt-3";
-    cardPrice.innerHTML = card.price;
+    cardPrice.innerHTML = card.price + "$";
 
     let addToCartBtn = $.createElement("button");
     addToCartBtn.className = "btn btn-outline-primary";
+    addToCartBtn.setAttribute("title" , "Add To Cart")
+    addToCartBtn.setAttribute("onclick" , "addToCart(" + JSON.stringify(card) + ")")
 
     let cartIcon = $.createElement("i");
-    cartIcon.className = "bi bi-cart2";
+    cartIcon.className = "bi bi-cart-plus";
 
     cardContainer.append(cardItem);
     cardItem.append(cardImgContainer, cardInfo);
@@ -486,8 +536,45 @@ function activeClassAndIndexChanger(event) {
 
   cardItemsArraySlicer(slicerStratIndex, slicerEndIndex);
 }
+
+function getCartInfoFromLocalStorage(){
+  let cart = JSON.parse(localStorage.getItem("cartItems"))
+
+  if(cart){
+    cartItemsArray = cart
+
+    updateCartProducstCount(cart.length)
+  }
+}
+
+function addToCart(item){
+  let isThisItemExistInCart = false
+  cartItemsArray.forEach(function(cartItem){
+    if(cartItem.id === item.id){
+      isThisItemExistInCart = true
+    }
+  })    
+
+  if(isThisItemExistInCart){
+    alert("this itme already exists in your cart")
+  }else{
+    cartItemsArray.push(item)
+
+    updateCartProducstCount(cartItemsArray.length)
+    setCartItemsInToLocalStorage(cartItemsArray)
+  }
+}
+
+function updateCartProducstCount(count){
+  cartProductsCountIcon.innerHTML = count
+}
+
+function setCartItemsInToLocalStorage(cartItemsArray){
+  localStorage.setItem("cartItems" , JSON.stringify(cartItemsArray))
+}
 // event listeners //////////////
 window.addEventListener("resize", liveUserScreenHeight);
 window.addEventListener("load", liveUserScreenHeight);
+window.addEventListener("load", getCartInfoFromLocalStorage)
 window.addEventListener("load", setStartAndEndSliceIndex);
 window.addEventListener("load", paginationBtnsUpdater);

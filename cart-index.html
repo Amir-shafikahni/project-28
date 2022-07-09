@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BootStrap Icon CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="./Source/BootStrap/Css/bootstrap.min.css">
+    <!-- Css StyleSheet -->
+    <link rel="stylesheet" href="./Cart/Source/Css/style.css">
+    <title>cart</title>
+</head>
+<body>
+    <h1 class="title text-center">Shop Cart</h1>
+    <div class="cartContainer container pb-5">
+        <div class="cartHeader row">
+            <div class="col-12 col-lg-10 m-auto d-flex ">
+                <div class="itemInfo">
+                    <h5>Item</h5>
+                    <hr>
+                </div>
+                <div class="itemPrice mx-3">
+                    <h5>Price</h5>
+                    <hr>
+                </div>
+                <div class="itemQuantity">
+                    <h5>Quantity</h5>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="cartBody row">
+            <!-- cart Ex:
+            <div class="cartItem col-12 col-lg-10 d-flex m-auto">
+                <div class="itemInfo d-flex">
+                    <img class="itemImg img-fliud" src="../Source/Media/Img/card-img-1.png" alt="">
+                    <h5 class="itemTitle m-0 ps-2">test</h5>
+                </div>
+                <div class="itemPrice">
+                    <h5 class="price">15000$</h5>
+                </div>
+                <div class="itemQuantity d-flex">
+                    <input class="form-control w-50 me-2" type="number" value="1" min="1" max="10">
+                    <button class="btn btn-danger">Remove</button>
+                </div>
+            </div>
+
+            <hr class="line my-3"> -->
+        </div>
+        
+        <div class="cartFooter my-3 row">
+            <div class="price d-flex">
+                <h3>Totall Price :&nbsp</h3>
+                <h3 class="TotalPrice">0$</h3>
+            </div>
+            <div class="purchase text-center mt-2">
+                <button class="btn btn-primary">Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyRight text-center py-2">Copyright Ⓒ 2022 - all rights reserves to <span>AmirSh</span></div>
+    </footer>
+    
+    <!-- BootStrap -->
+    <script src="./Source/BootStrap/Js/bootstrap.bundle.js"></script>
+    <!-- Main Script -->
+    <script src="./Cart/Source/Js/script.js"></script>
+</body>
+</html>

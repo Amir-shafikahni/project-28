@@ -9,6 +9,38 @@
     font-weight: 400;
 }
 
+.cartContainer{
+    position: fixed;
+    top: 55px;
+    left: 30px;
+    z-index: 999;
+}
+
+.cartContainer button{
+    border-radius: 50%;
+    padding: 7px 11px;
+}
+
+.cartContainer a{
+    color: white;
+    transition: 0.2s;
+}
+
+.cartContainer button:hover a{
+    color: white;
+}
+
+.cartContainer span{
+    background-color: rgb(255, 64, 64);
+    font-size: 13px;
+    border-radius: 50%;
+    padding: 0px 6px;
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    color: white;
+}
+
 .cardItem{
     display: flex;
     align-items: center;
