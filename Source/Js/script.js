@@ -454,11 +454,7 @@ function domUpdater(cardArray) {
 // to update the pagiantion Btn numbers based on the main array lenght
 // and then append them to dom
 function paginationBtnsUpdater() {
-  let btnsCount = Math.floor(cardItemsArray.length / rowCounter);
-
-  if (cardItemsArray.length % rowCounter) {
-    btnsCount++;
-  }
+  let btnsCount = Math.ceil(cardItemsArray.length / rowCounter);
 
   for (let i = 1; i <= btnsCount; i++) {
     let pagiantionBtn = $.createElement("button");
