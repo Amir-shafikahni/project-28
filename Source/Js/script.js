@@ -449,8 +449,8 @@ function domUpdater(cardArray) {
   });
 }
 
-// to update the pagiantion Btn numbers based on the main array items
-// and them append them to dom
+// to update the pagiantion Btn numbers based on the main array lenght
+// and then append them to dom
 function paginationBtnsUpdater() {
   let btnsCount = Math.floor(cardItemsArray.length / 8);
 
@@ -471,7 +471,7 @@ function paginationBtnsUpdater() {
   firstPagiantionBtn.classList.add("active");
 }
 
-// to set active class to clciked Btn and 
+// to set active class to clicked Btn and 
 // change the strat and end slice indexes
 function activeClassAndIndexChanger(event) {
   const allPagiantionsBtns = $.querySelectorAll(".pagiantionBtn");
