@@ -11,6 +11,7 @@ const paginationCardContainerRow = $.querySelector(
 const pagiantionButtonsContainer = $.querySelector(
   ".pagiantionButtonsContainer"
 );0
+
 let cardItemsArray = [
   {
     id: 1,

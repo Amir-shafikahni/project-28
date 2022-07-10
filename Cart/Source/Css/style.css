@@ -9,6 +9,22 @@
     font-weight: 400;
 }
 
+.backToShopBtn{
+    position: fixed;
+    top: 55px;
+    left: 30px;
+    z-index: 999;
+    border-radius: 50%;
+    padding: 7px 11px;
+    color: white;
+    transition: 0.2s;
+}
+
+.backToShopBtn:hover{
+    transform: scale(1.08);
+    color: white;
+}
+
 .cartHeader .itemInfo{
     width: 45%;
 }

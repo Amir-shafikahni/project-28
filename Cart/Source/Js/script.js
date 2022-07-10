@@ -7,7 +7,6 @@ const body = $.body
 const cartBody = $.querySelector(".cartBody")
 const TotalPrice = $.querySelector(".TotalPrice")
 
-
 // functions ////////////////////
 // to change minHeight of body by window resize event
 function liveUserScreenHeight() {
@@ -18,9 +17,11 @@ function liveUserScreenHeight() {
 function getCartInfoFromLocalStorage(){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"))
 
-    if(cartItems){
-        cartGenerator(cartItems)
-    }
+    cartGenerator(cartItems)
+}
+
+function showEmptyCartAlert(){
+    console.log(1);
 }
 
 function cartGenerator(cartArray){
@@ -148,4 +149,4 @@ function substractFromCartQuantity(cartArray , cartId){
 // event listeners //////////////
 window.addEventListener("resize", liveUserScreenHeight);
 window.addEventListener("load", liveUserScreenHeight);
-window.addEventListener("load" , getCartInfoFromLocalStorage)
+window.addEventListener("load" , getCartInfoFromLocalStorage);
