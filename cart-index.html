@@ -54,11 +54,11 @@
                 </div>
                 <div class="itemQuantity d-flex">
                     <div class="buttonsContainer d-flex">
-                        <button class="minus btn btn-outline-primary mx-1">-</button>
-                        <button class="plus btn btn-outline-primary">+</button>
+                        <button class="minus btn btn-outline-primary mx-1" onclick="substractFromCartQuantity(cartArray,cart.id)">-</button>
+                        <button class="plus btn btn-outline-primary" onclick="addToCartQuantity(cartArray,cart.id)">+</button>
                     </div>
                     <input class="form-control w-25 mx-2" type="text" value="1" min="1" max="10" disabled>
-                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    <button class="btn btn-danger" onclick="removeItem(cartArray,cart.id)"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
 
