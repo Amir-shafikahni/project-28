@@ -42,8 +42,12 @@
                     <h5 class="price">15000$</h5>
                 </div>
                 <div class="itemQuantity d-flex">
-                    <input class="form-control w-50 me-2" type="number" value="1" min="1" max="10">
-                    <button class="btn btn-danger">Remove</button>
+                    <div class="buttonsContainer d-flex">
+                        <button class="minus btn btn-outline-primary mx-1">-</button>
+                        <button class="plus btn btn-outline-primary">+</button>
+                    </div>
+                    <input class="form-control w-25 mx-2" type="text" value="1" min="1" max="10" disabled>
+                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
 

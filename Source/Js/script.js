@@ -10,8 +10,7 @@ const paginationCardContainerRow = $.querySelector(
 );
 const pagiantionButtonsContainer = $.querySelector(
   ".pagiantionButtonsContainer"
-);
-
+);0
 let cardItemsArray = [
   {
     id: 1,
@@ -20,7 +19,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "100",
     src: "./Source/Media/Img/card-img-1.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 2,
@@ -29,7 +28,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "200",
     src: "./Source/Media/Img/card-img-2.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 3,
@@ -38,7 +37,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "300",
     src: "./Source/Media/Img/card-img-3.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 4,
@@ -47,7 +46,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "400",
     src: "./Source/Media/Img/card-img-4.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 5,
@@ -56,7 +55,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "500",
     src: "./Source/Media/Img/card-img-5.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 6,
@@ -65,7 +64,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "600",
     src: "./Source/Media/Img/card-img-6.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 7,
@@ -74,7 +73,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "700",
     src: "./Source/Media/Img/card-img-7.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 8,
@@ -83,7 +82,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "800",
     src: "./Source/Media/Img/card-img-8.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 9,
@@ -92,7 +91,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "900",
     src: "./Source/Media/Img/card-img-9.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 10,
@@ -101,7 +100,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1000",
     src: "./Source/Media/Img/card-img-10.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 11,
@@ -110,7 +109,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1100",
     src: "./Source/Media/Img/card-img-11.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 12,
@@ -119,7 +118,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1200",
     src: "./Source/Media/Img/card-img-12.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 13,
@@ -128,7 +127,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1300",
     src: "./Source/Media/Img/card-img-13.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 14,
@@ -137,7 +136,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1400",
     src: "./Source/Media/Img/card-img-14.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 15,
@@ -146,7 +145,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1500",
     src: "./Source/Media/Img/card-img-15.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 16,
@@ -155,7 +154,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1600",
     src: "./Source/Media/Img/card-img-16.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 17,
@@ -164,7 +163,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1700",
     src: "./Source/Media/Img/card-img-17.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 18,
@@ -173,7 +172,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1800",
     src: "./Source/Media/Img/card-img-18.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 19,
@@ -182,7 +181,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "1900",
     src: "./Source/Media/Img/card-img-19.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 20,
@@ -191,7 +190,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2000",
     src: "./Source/Media/Img/card-img-20.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 21,
@@ -200,7 +199,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2100",
     src: "./Source/Media/Img/card-img-21.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 22,
@@ -209,7 +208,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2200",
     src: "./Source/Media/Img/card-img-22.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 23,
@@ -218,7 +217,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2300",
     src: "./Source/Media/Img/card-img-23.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 24,
@@ -227,7 +226,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2400",
     src: "./Source/Media/Img/card-img-24.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 25,
@@ -236,7 +235,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2500",
     src: "./Source/Media/Img/card-img-25.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 26,
@@ -245,7 +244,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2600",
     src: "./Source/Media/Img/card-img-26.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 27,
@@ -254,7 +253,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2700",
     src: "./Source/Media/Img/card-img-27.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 28,
@@ -263,7 +262,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2800",
     src: "./Source/Media/Img/card-img-28.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 29,
@@ -272,7 +271,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "2900",
     src: "./Source/Media/Img/card-img-29.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 30,
@@ -281,7 +280,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3000",
     src: "./Source/Media/Img/card-img-30.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 31,
@@ -290,7 +289,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3100",
     src: "./Source/Media/Img/card-img-31.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 32,
@@ -299,7 +298,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3200",
     src: "./Source/Media/Img/card-img-32.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 33,
@@ -308,7 +307,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3300",
     src: "./Source/Media/Img/card-img-33.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 34,
@@ -317,7 +316,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3400",
     src: "./Source/Media/Img/card-img-34.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 35,
@@ -326,7 +325,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3500",
     src: "./Source/Media/Img/card-img-35.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 36,
@@ -335,7 +334,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3600",
     src: "./Source/Media/Img/card-img-36.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 37,
@@ -344,7 +343,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3700",
     src: "./Source/Media/Img/card-img-37.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 38,
@@ -353,7 +352,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3800",
     src: "./Source/Media/Img/card-img-38.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 39,
@@ -362,7 +361,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "3900",
     src: "./Source/Media/Img/card-img-39.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 40,
@@ -371,7 +370,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "4000",
     src: "./Source/Media/Img/card-img-40.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 41,
@@ -380,7 +379,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "4100",
     src: "./Source/Media/Img/card-img-41.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 42,
@@ -389,7 +388,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "4200",
     src: "./Source/Media/Img/card-img-42.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 43,
@@ -398,7 +397,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "4300",
     src: "./Source/Media/Img/card-img-43.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 44,
@@ -407,7 +406,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "4400",
     src: "./Source/Media/Img/card-img-44.png",
-    countInCart:1
+    countInCart:0
   },
   {
     id: 45,
@@ -416,7 +415,7 @@ let cardItemsArray = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, dolorem adipisci. Dolorem nostrum ab praesentium.",
     price: "4500",
     src: "./Source/Media/Img/card-img-45.png",
-    countInCart:1
+    countInCart:0
   },
 ];
 
@@ -558,6 +557,7 @@ function addToCart(item){
   if(isThisItemExistInCart){
     alert("this itme already exists in your cart")
   }else{
+    item.countInCart = 1
     cartItemsArray.push(item)
 
     updateCartProducstCount(cartItemsArray.length)

@@ -47,6 +47,14 @@
     align-self: center;
 }
 
+.cartBody .itemQuantity .buttonsContainer{
+    flex-direction: row;
+}
+
+.cartBody .itemQuantity .buttonsContainer button{
+    padding: 0px  7px;
+}
+
 .line{
     color: rgba(0, 0, 0, 0.4);
 }

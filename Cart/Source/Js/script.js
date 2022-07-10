@@ -51,13 +51,26 @@ function cartGenerator(cartArray){
         let itemQuantity = $.createElement("div")
         itemQuantity.className = "itemQuantity d-flex"
     
+        let buttonsContainer = $.createElement("div")
+        buttonsContainer.className = "buttonsContainer d-flex"
+
+        let minusBtn = $.createElement("button")
+        minusBtn.className = "minus btn btn-outline-primary mx-1"
+        minusBtn.innerHTML = "-"
+        minusBtn.setAttribute("onclick" , "substractFromCartQuantity(" + JSON.stringify(cartArray) +","+ cart.id +")")
+
+        let plusBtn = $.createElement("button")
+        plusBtn.className = "plus btn btn-outline-primary"
+        plusBtn.innerHTML = "+"
+        plusBtn.setAttribute("onclick" , "addToCartQuantity(" + JSON.stringify(cartArray) +","+ cart.id +")")
+
         let quantityInput = $.createElement("input")
-        quantityInput.className = "form-control w-50 me-2"
-        quantityInput.setAttribute("type" , "number")
-        quantityInput.setAttribute("value" , "1")
+        quantityInput.className = "form-control w-25 mx-1"
+        quantityInput.setAttribute("type" , "text")
+        quantityInput.setAttribute("value" , cart.countInCart)
         quantityInput.setAttribute("min" , "1")
         quantityInput.setAttribute("max" , "10")
-        quantityInput.setAttribute("onchange" , "totalCartPrice(" + JSON.stringify(cartArray) + "," + cart.id + ")")
+        quantityInput.setAttribute("disabled" , "")
 
         let itemRemoveBtn = $.createElement("button")
         itemRemoveBtn.className = "btn btn-danger"
@@ -72,7 +85,8 @@ function cartGenerator(cartArray){
         cartItem.append(itemInfo , itemPriceElem , itemQuantity)
         itemInfo.append(itemImg , itemTitle)
         itemPriceElem.append(itemPrice)
-        itemQuantity.append(quantityInput , itemRemoveBtn)
+        itemQuantity.append(buttonsContainer, quantityInput , itemRemoveBtn)
+        buttonsContainer.append(minusBtn , plusBtn)
         itemRemoveBtn.append(trashIcon)
 
         cartBody.append(cartItem , line)
@@ -82,29 +96,17 @@ function cartGenerator(cartArray){
     totalCartPrice(cartArray)
 }
 
-function totalCartPrice(cartArray , cartId){
-
-    const allquantityInputs = $.querySelectorAll(".form-control")
-
+function totalCartPrice(cartArray){
     let finallPrice = 0
     let inputIndex = 0
 
     cartArray.forEach(function(cart){
-        let cartPrice = cart.price * allquantityInputs[inputIndex].value    
+        let cartPrice = cart.price * cart.countInCart    
         
         finallPrice += cartPrice
 
         inputIndex++
     })
-
-    // if(cartId){
-    //     cartArray.forEach(function(cart){
-    //         if (cart.id === cartId){
-    //             cart.countInCart = inputValue
-    //             console.log(cart.countInCart);
-    //         }
-    //     })
-    // }
 
     TotalPrice.innerHTML = finallPrice + "$"
 }
@@ -122,6 +124,29 @@ function removeItem(cartArray , cartId){
 
 function setCartInfoIntoLocalStorage(cartArray){
     localStorage.setItem("cartItems" , JSON.stringify(cartArray))
+}
+
+function addToCartQuantity(cartArray , cartId){
+    cartArray.forEach(function(cart){
+        if(cart.id === cartId && cart.countInCart < 10){
+            cart.countInCart++
+        }
+    })
+
+    cartGenerator(cartArray)
+    setCartInfoIntoLocalStorage(cartArray)
+}
+
+function substractFromCartQuantity(cartArray , cartId){
+    cartArray.forEach(function(cart){
+        if(cart.id === cartId && cart.countInCart > 1){
+            cart.countInCart--
+            console.log(cart.countInCart);
+        }
+    })
+
+    cartGenerator(cartArray)
+    setCartInfoIntoLocalStorage(cartArray)
 }
 
 // event listeners //////////////
