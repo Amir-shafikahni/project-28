@@ -15,69 +15,68 @@
 <body>
     <h1 class="title text-center">Shop Cart</h1>
 
-    <a class="backToShopBtn btn btn-info" href="./index.html"><i class="bi bi-arrow-left"></i></a>
+    <a class="back-to-shop-btn btn btn-info" href="./index.html"><i class="bi bi-arrow-left"></i></a>
 
-    <div class="alertsContainer">
-        <!-- priceUpdated alert Ex:
-        <div class="priceUpdated">Total Price updated</div> -->
+    <div class="alerts-container">
+        <!-- price updated alert Ex:
+        <div class="price-updated">Total Price updated</div> -->
 
-        <!-- itemDeleted Ex:
-        <div class="itemDeleted">Item successfully deleted</div> -->
+        <!-- item deleted Ex:
+        <div class="item-deleted">Item successfully deleted</div> -->
     </div>
 
-    <div class="cartContainer container pb-5">
-        <div class="cartHeader row">
+    <div class="cart-items-container container pb-5">
+        <div class="cart-header row">
             <div class="col-12 col-lg-10 m-auto d-flex ">
-                <div class="itemInfo">
-                    <h5>Item</h5>
+                <div class="cart-item-info me-2">
+                    <h5 class="text-center">Item info</h5>
                     <hr>
                 </div>
-                <div class="itemPrice mx-3">
-                    <h5>Price</h5>
+                <div class="cart-item-price me-2">
+                    <h5 class="text-center">Price</h5>
                     <hr>
                 </div>
-                <div class="itemQuantity">
-                    <h5>Quantity</h5>
+                <div class="cart-item-quantity">
+                    <h5 class="text-center">Quantity</h5>
                     <hr>
                 </div>
             </div>
         </div>
-        <div class="cartBody row">
+        <div class="cart-body row">
             <!-- cart Ex:
-            <div class="cartItem col-12 col-lg-10 d-flex m-auto">
-                <div class="itemInfo d-flex">
-                    <img class="itemImg img-fliud" src="../Source/Media/Img/card-img-1.png" alt="">
-                    <h5 class="itemTitle m-0 ps-2">test</h5>
+            <div class="cart-item col-12 col-lg-10 d-flex m-auto">
+                <div class="cart-item-info d-flex me-2">
+                    <img class="cart-item-img img-fliud" src="../Source/Media/Img/card-img-1.png" alt="">
+                    <h5 class="cart-item-title m-0 ps-2">test</h5>
                 </div>
-                <div class="itemPrice">
-                    <h5 class="price">15000$</h5>
+                <div class="cart-item-price me-2">
+                    <h5 class="item-price">15000$</h5>
                 </div>
-                <div class="itemQuantity d-flex">
-                    <div class="buttonsContainer d-flex">
-                        <button class="minus btn btn-outline-primary mx-1" onclick="substractFromCartQuantity(cartArray,cart.id)">-</button>
-                        <button class="plus btn btn-outline-primary" onclick="addToCartQuantity(cartArray,cart.id)">+</button>
+                <div class="cart-item-quantity d-flex">
+                    <div class="cart-item-btn-container d-flex m-auto">
+                        <i class="cart-item-plus-btn bi bi-plus"></i>
+                        <span class="cart-item-count text-center my-1">1</span>
+                        <i class="cart-item-trash-btn bi bi-trash"></i>
+                        <i class="cart-item-minus-btn bi bi-dash"></i>
                     </div>
-                    <input class="form-control w-25 mx-2" type="text" value="1" min="1" max="10" disabled>
-                    <button class="btn btn-danger" onclick="removeItem(cartArray,cart.id)"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
-
             <hr class="line my-3"> -->
         </div>
         
-        <div class="cartFooter my-3 row">
-            <div class="price d-flex">
+        <div class="cart-footer my-3 row">
+            <div class="cart-item-total-price d-flex">
                 <h3>Totall Price :&nbsp</h3>
-                <h3 class="TotalPrice">0$</h3>
+                <h3 class="item-total-price">0$</h3>
             </div>
-            <div class="purchase text-center mt-2">
+            <!-- <div class="purchase text-center mt-2">
                 <button class="btn btn-primary">Purchase</button>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <footer>
-        <div class="copyRight text-center py-2">Copyright Ⓒ 2022 - all rights reserves to <span>AmirSh</span></div>
+        <div class="copy-right text-center py-2">Copyright Ⓒ 2022 - all rights reserves to <span>AmirSh</span></div>
     </footer>
     
     <!-- BootStrap -->
