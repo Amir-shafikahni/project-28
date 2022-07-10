@@ -97,18 +97,15 @@ function cartGenerator(cartArray){
 }
 
 function totalCartPrice(cartArray){
-    let finallPrice = 0
-    let inputIndex = 0
+    let finallCartsPrice = 0
 
     cartArray.forEach(function(cart){
         let cartPrice = cart.price * cart.countInCart    
         
-        finallPrice += cartPrice
-
-        inputIndex++
+        finallCartsPrice += cartPrice
     })
 
-    TotalPrice.innerHTML = finallPrice + "$"
+    TotalPrice.innerHTML = finallCartsPrice + "$"
 }
 
 function removeItem(cartArray , cartId){
@@ -141,7 +138,6 @@ function substractFromCartQuantity(cartArray , cartId){
     cartArray.forEach(function(cart){
         if(cart.id === cartId && cart.countInCart > 1){
             cart.countInCart--
-            console.log(cart.countInCart);
         }
     })
 
