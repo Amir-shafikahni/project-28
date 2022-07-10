@@ -19,7 +19,9 @@ function liveUserScreenHeight() {
 function getCartInfoFromLocalStorage(){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"))
 
-    userCartGenerator(cartItems)
+    if(cartItems.length){
+        userCartGenerator(cartItems)
+    }
 }
 
 // to update the dom based on user cart info
