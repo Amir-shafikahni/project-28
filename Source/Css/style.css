@@ -43,6 +43,7 @@
     color: white;
 }
 
+/* alerts styles */
 .alerts-container{
     position: fixed;
     top: 0;
@@ -100,7 +101,7 @@
     animation: timer 6s linear 1;
 }
 
-/* card */
+/* card styles*/
 .card-item{
     border: 1px solid rgba(0,0, 0, 0.1);
     flex-direction: column;
@@ -118,6 +119,7 @@
     transform: translateY(-6px);
 }
 
+/* footer styles */
 .copy-right{
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px 15px 0px 0px;
@@ -141,6 +143,7 @@
     color: white;
 }
 
+/* key frames */
 @keyframes timer{
     100%{
         width: 100%;

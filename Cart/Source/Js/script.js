@@ -19,11 +19,11 @@ function liveUserScreenHeight() {
 function getCartInfoFromLocalStorage(){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"))
 
-    cartGenerator(cartItems)
+    userCartGenerator(cartItems)
 }
 
 // to update the dom based on user cart info
-function cartGenerator(cartArray){
+function userCartGenerator(cartArray){
     cartBody.innerHTML = ""
 
     cartArray.forEach(function(item){
@@ -118,7 +118,7 @@ function itemCountPlus(cartArray , item){
         }
     })
 
-    cartGenerator(cartArray)
+    userCartGenerator(cartArray)
     setCartInfoIntoLocalStorage(cartArray)
     showAlertAnimation("price-updated" , "Total Price updated")
 }
@@ -132,7 +132,7 @@ function itemCountMinus(cartArray , item){
         }
     })
 
-    cartGenerator(cartArray)
+    userCartGenerator(cartArray)
     setCartInfoIntoLocalStorage(cartArray)
     showAlertAnimation("price-updated" , "Total Price updated")
 }
@@ -145,7 +145,7 @@ function removeCartItem(cartArray , item){
 
     cartArray.splice(itemIndex , 1)
 
-    cartGenerator(cartArray)
+    userCartGenerator(cartArray)
     setCartInfoIntoLocalStorage(cartArray)
     showAlertAnimation("item-deleted" , "Item successfully deleted")
 }

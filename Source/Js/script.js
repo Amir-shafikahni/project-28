@@ -560,6 +560,7 @@ function getBasketInfoFromLocalStorage() {
 // to add an item to user cart by clicking on add to cart Btn
 function addToBasket(item) {
   let isThisItemExistInCart = false;
+  
   userBasket.forEach(function (basketItem) {
     if (basketItem.id === item.id) {
       isThisItemExistInCart = true;

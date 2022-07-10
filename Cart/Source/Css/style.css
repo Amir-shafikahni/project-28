@@ -25,6 +25,7 @@
     color: white;
 }
 
+/* alerts styles */
 .alerts-container{
     position: fixed;
     top: 70px;
@@ -82,6 +83,7 @@
     animation: timer 4.5s linear 1;
 }
 
+/* cart styles */
 .cart-header .cart-item-info{
     width: 55%;
 }
@@ -143,6 +145,7 @@
     color: rgba(0, 0, 0, 0.4);
 }
 
+/* footer styles */
 .copy-right{
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 15px 15px 0px 0px;
@@ -161,12 +164,14 @@
     color: red;
 }
 
+/* key frames */
 @keyframes timer{
     100%{
         width: 100%;
     }
 }
 
+/* mediaquaries */
 @media only screen and (max-width:550px){
     .cartBody .itemQuantity input{
     text-align: center;
