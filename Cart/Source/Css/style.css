@@ -10,13 +10,13 @@
 }
 
 .backToShopBtn{
-    position: absolute;
-    top: 40px;
-    left: 30px;
-    z-index: 999;
     border-radius: 50%;
     padding: 7px 11px;
     color: white;
+    z-index: 999;
+    position: absolute;
+    left: 30px;
+    top: 40px;
     transition: 0.2s;
 }
 
@@ -33,52 +33,52 @@
 }
 
 .alertsContainer .priceUpdated{
+    color: rgba(0, 0, 0, 0.807);
     transform: translateX(300px);
-    opacity: 0;
-    position: relative;
-    margin: 15px;
     background-color: #7be495;
     padding: 6px 10px 7px 10px;
     border-radius: 15px;
-    color: rgba(0, 0, 0, 0.807);
+    position: relative;
     overflow: hidden;
+    margin: 15px;
+    opacity: 0;
     transition: 0.5s;
 }
 
 .alertsContainer .priceUpdated::before{
     content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    height: 4px;
+    width: 0;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 4px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
     animation: timer 4.5s linear 1;
 }
 
 .alertsContainer .itemDeleted{
-    transform: translateX(300px);
-    opacity: 0;
-    position: relative;
-    margin: 15px;
     background-color: rgb(255, 42, 42);
+    transform: translateX(300px);
     padding: 6px 10px 7px 10px;
     border-radius: 15px;
-    color: white;
+    position: relative;
     overflow: hidden;
+    color: white;
+    margin: 15px;
+    opacity: 0;
     transition: 0.5s;
 }
 
 .alertsContainer .itemDeleted::before{
     content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    height: 4px;
+    width: 0;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 4px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
     animation: timer 4.5s linear 1;
 }
 
@@ -101,13 +101,13 @@
 }
 
 .cartBody .itemInfo img{
-    width: 65%;
     border-radius: 5px;
+    width: 65%;
 }
 
 .cartBody .itemInfo h5{
-    width: 35%;
     font-weight: 400;
+    width: 35%;
 }
 
 .cartBody .itemPrice{
@@ -116,8 +116,8 @@
 }
 
 .cartBody .itemQuantity{
-    width: 35%;
     align-self: center;
+    width: 35%;
 }
 
 .cartBody .itemQuantity .buttonsContainer{
@@ -133,21 +133,21 @@
 }
 
 .copyRight{
-    width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    margin: auto;
-    transform: translate(-50%);
-    color: white;
     border-radius: 15px 15px 0px 0px;
+    transform: translate(-50%);
     z-index: 1000;
+    margin: auto;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    color: white;
+    left: 50%;
 }
 
 .copyRight span{
-    color: red;
     font-size: 18px;
+    color: red;
 }
 
 @keyframes timer{
