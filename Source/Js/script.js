@@ -5,6 +5,7 @@ let $ = document;
 // variables ///////////////
 const body = $.body;
 const cartProductsCountIcon = $.querySelector(".productsCount")
+const alertsContainer = $.querySelector(".alertsContainer")
 const paginationCardContainerRow = $.querySelector(
   ".paginationCardContainer .row"
 );
@@ -486,7 +487,7 @@ function domUpdater(cardArray) {
     let addToCartBtn = $.createElement("button");
     addToCartBtn.className = "btn btn-outline-primary";
     addToCartBtn.setAttribute("title" , "Add To Cart")
-    addToCartBtn.setAttribute("onclick" , "addToCart(" + JSON.stringify(card) + ")")
+    addToCartBtn.setAttribute("onclick" , "addToCart(" + JSON.stringify(card) +")")
 
     let cartIcon = $.createElement("i");
     cartIcon.className = "bi bi-cart-plus";
@@ -547,7 +548,7 @@ function getCartInfoFromLocalStorage(){
   }
 }
 
-function addToCart(item){
+function addToCart(item , event){
   let isThisItemExistInCart = false
   cartItemsArray.forEach(function(cartItem){
     if(cartItem.id === item.id){
@@ -556,13 +557,14 @@ function addToCart(item){
   })    
 
   if(isThisItemExistInCart){
-    alert("this itme already exists in your cart")
+    alertAnimation("itemExist" , "This item already exists in your cart")
   }else{
     item.countInCart = 1
     cartItemsArray.push(item)
 
     updateCartProducstCount(cartItemsArray.length)
     setCartItemsInToLocalStorage(cartItemsArray)
+    alertAnimation("itemAdded" , "Item successfully added to your cart")
   }
 }
 
@@ -573,6 +575,25 @@ function updateCartProducstCount(count){
 function setCartItemsInToLocalStorage(cartItemsArray){
   localStorage.setItem("cartItems" , JSON.stringify(cartItemsArray))
 }
+
+function alertAnimation(alertClass , alertMassage){
+  let alertElem = $.createElement("div")
+  alertElem.className = alertClass
+  alertElem.innerHTML = alertMassage
+  
+  alertsContainer.append(alertElem)
+  setTimeout(function(){
+    alertElem.style.cssText = "transform: translateX(0px);opacity: 1;"
+  },10)
+
+  setTimeout(function(){
+    alertElem.style.cssText = ""
+  },6010)
+  setTimeout(function(){
+    alertElem.remove()
+  },7000)
+}
+
 // event listeners //////////////
 window.addEventListener("resize", liveUserScreenHeight);
 window.addEventListener("load", liveUserScreenHeight);
