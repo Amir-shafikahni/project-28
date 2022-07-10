@@ -25,6 +25,63 @@
     color: white;
 }
 
+.alertsContainer{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 90;
+}
+
+.alertsContainer .priceUpdated{
+    transform: translateX(300px);
+    opacity: 0;
+    position: relative;
+    margin: 15px;
+    background-color: #7be495;
+    padding: 6px 10px 7px 10px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.807);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.alertsContainer .priceUpdated::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    animation: timer 4.5s linear 1;
+}
+
+.alertsContainer .itemDeleted{
+    transform: translateX(300px);
+    opacity: 0;
+    position: relative;
+    margin: 15px;
+    background-color: rgb(255, 42, 42);
+    padding: 6px 10px 7px 10px;
+    border-radius: 15px;
+    color: white;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.alertsContainer .itemDeleted::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    animation: timer 4.5s linear 1;
+}
+
 .cartHeader .itemInfo{
     width: 45%;
 }
@@ -92,9 +149,15 @@
     font-size: 18px;
 }
 
+@keyframes timer{
+    100%{
+        width: 100%;
+    }
+}
+
 @media only screen and (max-width:550px){
     .cartBody .itemQuantity input{
     text-align: center;
     padding: 0;
-}
+    }
 }

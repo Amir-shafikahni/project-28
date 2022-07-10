@@ -557,14 +557,14 @@ function addToCart(item , event){
   })    
 
   if(isThisItemExistInCart){
-    alertAnimation("itemExist" , "This item already exists in your cart")
+    showAlertAnimation("itemExist" , "This item already exists in your cart")
   }else{
     item.countInCart = 1
     cartItemsArray.push(item)
 
     updateCartProducstCount(cartItemsArray.length)
     setCartItemsInToLocalStorage(cartItemsArray)
-    alertAnimation("itemAdded" , "Item successfully added to your cart")
+    showAlertAnimation("itemAdded" , "Item successfully added to your cart")
   }
 }
 
@@ -576,7 +576,7 @@ function setCartItemsInToLocalStorage(cartItemsArray){
   localStorage.setItem("cartItems" , JSON.stringify(cartItemsArray))
 }
 
-function alertAnimation(alertClass , alertMassage){
+function showAlertAnimation(alertClass , alertMassage){
   let alertElem = $.createElement("div")
   alertElem.className = alertClass
   alertElem.innerHTML = alertMassage

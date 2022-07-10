@@ -4,6 +4,7 @@ let $ = document
 
 // variables ////////////////
 const body = $.body
+const alertsContainer = $.querySelector(".alertsContainer")
 const cartBody = $.querySelector(".cartBody")
 const TotalPrice = $.querySelector(".TotalPrice")
 
@@ -118,6 +119,7 @@ function removeItem(cartArray , cartId){
 
     cartGenerator(cartArray)
     setCartInfoIntoLocalStorage(cartArray)
+    showAlertAnimation("itemDeleted" , "Item successfully deleted")
 }
 
 function setCartInfoIntoLocalStorage(cartArray){
@@ -128,22 +130,44 @@ function addToCartQuantity(cartArray , cartId){
     cartArray.forEach(function(cart){
         if(cart.id === cartId && cart.countInCart < 10){
             cart.countInCart++
+
+            cartGenerator(cartArray)
+            setCartInfoIntoLocalStorage(cartArray)
+            showAlertAnimation("priceUpdated" , "Total Price updated")
+            return
         }
     })
-
-    cartGenerator(cartArray)
-    setCartInfoIntoLocalStorage(cartArray)
 }
 
 function substractFromCartQuantity(cartArray , cartId){
     cartArray.forEach(function(cart){
         if(cart.id === cartId && cart.countInCart > 1){
             cart.countInCart--
+            
+            cartGenerator(cartArray)
+            setCartInfoIntoLocalStorage(cartArray)
+            showAlertAnimation("priceUpdated" , "Total Price updated")
+            return
         }
     })
+}
 
-    cartGenerator(cartArray)
-    setCartInfoIntoLocalStorage(cartArray)
+function showAlertAnimation(alertClass , alertMassage){
+    let alertElem = $.createElement("div")
+    alertElem.className = alertClass
+    alertElem.innerHTML = alertMassage
+    
+    alertsContainer.append(alertElem)
+    setTimeout(function(){
+      alertElem.style.cssText = "transform: translateX(0px);opacity: 1;"
+    },10)
+  
+    setTimeout(function(){
+      alertElem.style.cssText = ""
+    },4510)
+    setTimeout(function(){
+      alertElem.remove()
+    },5500)
 }
 
 // event listeners //////////////
