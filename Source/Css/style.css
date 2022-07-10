@@ -11,7 +11,7 @@
 
 .cartBtnContainer{
     position: fixed;
-    top: 55px;
+    top: 40px;
     right: 30px;
     z-index: 999;
 }
@@ -42,7 +42,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 90;
+    z-index: 2;
 }
 
 .alertsContainer .itemAdded{
@@ -65,7 +65,7 @@
     left: 0;
     width: 0;
     height: 4px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     animation: timer 6s linear 1;
 }
