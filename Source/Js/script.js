@@ -433,6 +433,14 @@ function liveUserScreenHeight() {
   body.style.minHeight = userScreenHeight;
 }
 
+function doesUserBasketExist(){
+  let localBasket = localStorage.getItem("cartItems")
+
+  if(!localBasket){
+    setBasketItemsInToLocalStorage(userBasket)
+  }
+}
+
 // to set start and end slice Indexes on window laod
 function setStartAndEndSliceIndex() {
   let slicerStratIndex = 0;
@@ -585,8 +593,8 @@ function updateBasketProducstCount(count) {
 }
 
 //  to set user cart info in to the local storage
-function setBasketItemsInToLocalStorage(userBasket) {
-  localStorage.setItem("cartItems", JSON.stringify(userBasket));
+function setBasketItemsInToLocalStorage(UserBasket) {
+  localStorage.setItem("cartItems", JSON.stringify(UserBasket));
 }
 
 // to make an alert template based on alert classname and its masssage
@@ -612,6 +620,7 @@ function showAlertAnimation(alertClass, alertMassage) {
 // event listeners //////////////
 window.addEventListener("resize", liveUserScreenHeight);
 window.addEventListener("load", liveUserScreenHeight);
+window.addEventListener("load", doesUserBasketExist)
 window.addEventListener("load", getBasketInfoFromLocalStorage);
 window.addEventListener("load", setStartAndEndSliceIndex);
 window.addEventListener("load", paginationBtnsUpdater);
