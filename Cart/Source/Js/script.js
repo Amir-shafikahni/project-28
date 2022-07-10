@@ -15,16 +15,14 @@ function liveUserScreenHeight() {
     body.style.minHeight = userScreenHeight;
   }
 
+// to get user cart info from local storage and update the dom
 function getCartInfoFromLocalStorage(){
     let cartItems = JSON.parse(localStorage.getItem("cartItems"))
 
     cartGenerator(cartItems)
 }
 
-function showEmptyCartAlert(){
-    console.log(1);
-}
-
+// to update the dom based on user cart info
 function cartGenerator(cartArray){
     cartBody.innerHTML = ""
 
@@ -94,10 +92,10 @@ function cartGenerator(cartArray){
         cartBody.append(cartItem , line)
     });
 
-
     totalCartPrice(cartArray)
 }
 
+// to calculate total price of user cart
 function totalCartPrice(cartArray){
     let finallCartsPrice = 0
 
@@ -110,6 +108,7 @@ function totalCartPrice(cartArray){
     TotalPrice.innerHTML = finallCartsPrice + "$"
 }
 
+// to remove an item by clicking on trash btn
 function removeItem(cartArray , cartId){
     let cartIndex = cartArray.findIndex(function(cart){
         return cart.id === cartId
@@ -122,10 +121,13 @@ function removeItem(cartArray , cartId){
     showAlertAnimation("itemDeleted" , "Item successfully deleted")
 }
 
+// to set user cart info in to the local storage
 function setCartInfoIntoLocalStorage(cartArray){
     localStorage.setItem("cartItems" , JSON.stringify(cartArray))
 }
 
+// to update the item quantity by +1
+// and item quantity must be between 1 and 10
 function addToCartQuantity(cartArray , cartId){
     cartArray.forEach(function(cart){
         if(cart.id === cartId && cart.countInCart < 10){
@@ -139,6 +141,8 @@ function addToCartQuantity(cartArray , cartId){
     })
 }
 
+// to update the item quantity by -1
+// and item quantity must be between 1 and 10
 function substractFromCartQuantity(cartArray , cartId){
     cartArray.forEach(function(cart){
         if(cart.id === cartId && cart.countInCart > 1){
@@ -152,6 +156,8 @@ function substractFromCartQuantity(cartArray , cartId){
     })
 }
 
+// to make an alert template based on alert classname and its masssage
+// and then append it to dom
 function showAlertAnimation(alertClass , alertMassage){
     let alertElem = $.createElement("div")
     alertElem.className = alertClass
