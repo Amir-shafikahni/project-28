@@ -582,16 +582,16 @@ function showAlertAnimation(alertClass , alertMassage){
   alertElem.innerHTML = alertMassage
   
   alertsContainer.append(alertElem)
+
   setTimeout(function(){
     alertElem.style.cssText = "transform: translateX(0px);opacity: 1;"
   },10)
-
   setTimeout(function(){
     alertElem.style.cssText = ""
-  },6010)
+  },6000)
   setTimeout(function(){
     alertElem.remove()
-  },7000)
+  },6500)
 }
 
 // event listeners //////////////
