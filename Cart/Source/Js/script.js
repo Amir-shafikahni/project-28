@@ -100,15 +100,15 @@ function userCartGenerator(cartArray){
 
 // to calculate total price of user cart
 function totalCartPrice(cartArray){
-    let finallCartsPrice = 0
+    let finallItemssPrice = 0
 
-    cartArray.forEach(function(cart){
-        let cartPrice = cart.price * cart.count    
+    cartArray.forEach(function(item){
+        let itemPrice = item.price * item.count    
         
-        finallCartsPrice += cartPrice
+        finallItemssPrice += itemPrice
     })
 
-    cartItemTotalPrice.innerHTML = finallCartsPrice + "$"
+    cartItemTotalPrice.innerHTML = finallItemssPrice + "$"
 }
 
 // to update the item quantity by +1
