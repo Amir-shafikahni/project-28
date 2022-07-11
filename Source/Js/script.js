@@ -424,6 +424,7 @@ let userBasket = [];
 // number of rows per page
 let rowCounter = 8;
 
+
 // fucntions ////////////////
 // to change minHeight of body by window resize event
 function liveUserScreenHeight() {
@@ -462,22 +463,24 @@ function domUpdater(itemsArray) {
   mainCardContainerRow.innerHTML = "";
 
   itemsArray.forEach(function (card) {
-    mainCardContainerRow.insertAdjacentHTML('beforeend' , 
-    '<div class="card-container col-12 col-md-6 col-lg-4 mb-4">'+ 
-      '<div class="card-item">'+
-        '<div class="card-item-img-container w-100">'+
-          '<img class="card-item-img img-fluid w-100" src="' + card.src + '">'+
-        '</div>'+
-        '<div class="card-item-info m-3">'+
-          '<h5 class="card-item-title">'+ card.title +'</h5>'+
-          '<div class="card-item-detail my-2">'+ card.detail +'</div>'+
-          '<h6 class="card-item-price text-end me-3 mt-3">'+ card.price + '$' +'</h6>'+
-          '<button class="card-item-btn btn btn-outline-primary" title="Add To Cart" onclick=addToBasket('+ card.id +')>'+
-            '<i class="card-item-Basket-icon bi bi-cart2"></i>'+
-          '</button>'+
-        '</div>'
+    mainCardContainerRow.insertAdjacentHTML(
+      "beforeend" ,
+      '<div class="card-container col-12 col-md-6 col-lg-4 mb-4">'+
+        '<div class="card-item">'+
+          '<div class="card-item-img-container w-100">'+
+            '<img class="card-item-img img-fluid w-100" src="' + card.src + '">'+
+          '</div>'+
+          '<div class="card-item-info m-3">'+
+            '<h5 class="card-item-title">'+ card.title +'</h5>'+
+            '<div class="card-item-detail my-2">'+ card.detail +'</div>'+
+            '<h6 class="card-item-price text-end me-3 mt-3">'+ card.price + '$' +'</h6>'+
+            '<button class="card-item-btn btn btn-outline-primary" title="Add To Cart" onclick=addToBasket('+ card.id +')>'+
+              '<i class="card-item-Basket-icon bi bi-cart2"></i>'+
+            '</button>'+
+          '</div>'
+        +'</div>'
       +'</div>'
-    +'</div>');
+    );
   });
 }
 
@@ -536,9 +539,9 @@ function getBasketInfoFromLocalStorage() {
 
 // to add an item to user cart by clicking on add to cart Btn
 function addToBasket(productId) {
-  let product = shopItemsArray.find(function(item){
-    return item.id === productId
-  })
+  let product = shopItemsArray.find(function (item) {
+    return item.id === productId;
+  });
 
   let isThisItemExistInCart = false;
 
@@ -589,6 +592,7 @@ function showAlertAnimation(alertClass, alertMassage) {
     alertElem.remove();
   }, 6500);
 }
+
 
 // event listeners //////////////
 window.addEventListener("resize", liveUserScreenHeight);
