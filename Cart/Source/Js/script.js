@@ -84,7 +84,7 @@ function userCartGenerator(cartArray){
         }
 
         let line = $.createElement("hr")
-        line.className = "line my-3"
+        line.className = "line col-12 col-lg-10 d-flex m-auto my-3"
 
         cartItem.append(cartItemInfo , cartItemPriceElem , cartItemQuantity)
         cartItemInfo.append(cartItemImg , cartItemTitle)
