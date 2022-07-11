@@ -84,16 +84,16 @@
 }
 
 /* cart styles */
-.cart-header .cart-item-info{
+.cart-header .cart-item-info-header{
     width: 55%;
 }
 
-.cart-header .cart-item-price{
+.cart-header .cart-item-price-header{
     align-items: center;
     width: 20%;
 }
 
-.cart-header .cart-item-quantity{
+.cart-header .cart-item-quantity-header{
     width: 20%;
 }
 

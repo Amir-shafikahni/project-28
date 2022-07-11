@@ -6,9 +6,7 @@ let $ = document;
 const body = $.body;
 const userBasketItemsCount = $.querySelector(".user-basket-items-count");
 const alertsContainer = $.querySelector(".alerts-container");
-const mainCardContainerRow = $.querySelector(
-  ".main-card-container .row"
-);
+const mainCardContainerRow = $.querySelector(".main-card-container .row");
 const pagiantionButtonsContainer = $.querySelector(
   ".pagiantion-buttons-container"
 );
@@ -433,11 +431,11 @@ function liveUserScreenHeight() {
   body.style.minHeight = userScreenHeight;
 }
 
-function doesUserBasketExist(){
-  let localBasket = localStorage.getItem("cartItems")
+function doesUserBasketExist() {
+  let localBasket = localStorage.getItem("cartItems");
 
-  if(!localBasket){
-    setBasketItemsInToLocalStorage(userBasket)
+  if (!localBasket) {
+    setBasketItemsInToLocalStorage(userBasket);
   }
 }
 
@@ -464,51 +462,22 @@ function domUpdater(itemsArray) {
   mainCardContainerRow.innerHTML = "";
 
   itemsArray.forEach(function (card) {
-    let cardContainer = $.createElement("div");
-    cardContainer.className = "card-container col-12 col-md-6 col-lg-4 mb-4";
-
-    let cardItem = $.createElement("div");
-    cardItem.className = "card-item";
-
-    let cardImgContainer = $.createElement("div");
-    cardImgContainer.className = "card-item-img-container w-100";
-
-    let cardItemImg = $.createElement("img");
-    cardItemImg.className = "card-item-img img-fluid w-100";
-    cardItemImg.src = card.src
-
-    let cardItemInfo = $.createElement("div");
-    cardItemInfo.className = "card-item-info m-3";
-
-    let cardItemTitle = $.createElement("h5");
-    cardItemTitle.className = "card-item-title";
-    cardItemTitle.innerHTML = card.title;
-
-    let cardItemDetail = $.createElement("div");
-    cardItemDetail.className = "card-item-detail my-2";
-    cardItemDetail.innerHTML = card.detail;
-
-    let cardItemPrice = $.createElement("h6");
-    cardItemPrice.className = "card-item-price text-end me-3 mt-3";
-    cardItemPrice.innerHTML = card.price + "$";
-
-    let cardItemAddToCartBtn = $.createElement("button");
-    cardItemAddToCartBtn.className = "card-item-btn btn btn-outline-primary";
-    cardItemAddToCartBtn.title = "Add To Cart"
-    cardItemAddToCartBtn.addEventListener("click" , function(){
-      addToBasket(card)
-    })
-
-    let cardItemBasketIcon = $.createElement("i");
-    cardItemBasketIcon.className = "card-item-Basket-icon bi bi-cart-plus";
-
-    cardContainer.append(cardItem);
-    cardItem.append(cardImgContainer, cardItemInfo);
-    cardImgContainer.append(cardItemImg);
-    cardItemInfo.append(cardItemTitle, cardItemDetail, cardItemPrice, cardItemAddToCartBtn);
-    cardItemAddToCartBtn.append(cardItemBasketIcon);
-
-    mainCardContainerRow.append(cardContainer);
+    mainCardContainerRow.insertAdjacentHTML('beforeend' , 
+    '<div class="card-container col-12 col-md-6 col-lg-4 mb-4">'+ 
+      '<div class="card-item">'+
+        '<div class="card-item-img-container w-100">'+
+          '<img class="card-item-img img-fluid w-100" src="' + card.src + '">'+
+        '</div>'+
+        '<div class="card-item-info m-3">'+
+          '<h5 class="card-item-title">'+ card.title +'</h5>'+
+          '<div class="card-item-detail my-2">'+ card.detail +'</div>'+
+          '<h6 class="card-item-price text-end me-3 mt-3">'+ card.price + '$' +'</h6>'+
+          '<button class="card-item-btn btn btn-outline-primary" title="Add To Cart" onclick=addToBasket('+ card.id +')>'+
+            '<i class="card-item-Basket-icon bi bi-cart2"></i>'+
+          '</button>'+
+        '</div>'
+      +'</div>'
+    +'</div>');
   });
 }
 
@@ -522,10 +491,10 @@ function paginationBtnsUpdater() {
     pagiantionBtn.className = "pagiantion-btn btn btn-outline-primary me-1";
     pagiantionBtn.innerHTML = i;
 
-    pagiantionBtn.addEventListener("click" , function(){
-      activeClassAdder(event)
-      pagiantionIndexChanger(event)
-    })
+    pagiantionBtn.addEventListener("click", function () {
+      activeClassAdder(event);
+      pagiantionIndexChanger(event);
+    });
 
     pagiantionButtonsContainer.append(pagiantionBtn);
   }
@@ -547,7 +516,7 @@ function activeClassAdder(event) {
 }
 
 // change the strat and end slice indexes
-function pagiantionIndexChanger(event){
+function pagiantionIndexChanger(event) {
   slicerStratIndex = event.target.innerHTML * rowCounter - rowCounter;
   slicerEndIndex = event.target.innerHTML * rowCounter;
 
@@ -566,11 +535,15 @@ function getBasketInfoFromLocalStorage() {
 }
 
 // to add an item to user cart by clicking on add to cart Btn
-function addToBasket(item) {
+function addToBasket(productId) {
+  let product = shopItemsArray.find(function(item){
+    return item.id === productId
+  })
+
   let isThisItemExistInCart = false;
-  
+
   userBasket.forEach(function (basketItem) {
-    if (basketItem.id === item.id) {
+    if (basketItem.id === product.id) {
       isThisItemExistInCart = true;
     }
   });
@@ -578,8 +551,8 @@ function addToBasket(item) {
   if (isThisItemExistInCart) {
     showAlertAnimation("item-exist", "This item already exists in your cart");
   } else {
-    item.count = 1;
-    userBasket.push(item);
+    product.count = 1;
+    userBasket.push(product);
 
     updateBasketProducstCount(userBasket.length);
     setBasketItemsInToLocalStorage(userBasket);
@@ -620,7 +593,7 @@ function showAlertAnimation(alertClass, alertMassage) {
 // event listeners //////////////
 window.addEventListener("resize", liveUserScreenHeight);
 window.addEventListener("load", liveUserScreenHeight);
-window.addEventListener("load", doesUserBasketExist)
+window.addEventListener("load", doesUserBasketExist);
 window.addEventListener("load", getBasketInfoFromLocalStorage);
 window.addEventListener("load", setStartAndEndSliceIndex);
 window.addEventListener("load", paginationBtnsUpdater);

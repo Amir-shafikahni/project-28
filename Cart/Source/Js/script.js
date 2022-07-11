@@ -8,7 +8,9 @@ const alertsContainer = $.querySelector(".alerts-container")
 const cartBody = $.querySelector(".cart-body")
 const cartItemTotalPrice = $.querySelector(".item-total-price")
 
-// functions ////////////////////
+let userBasket = []
+
+// functions //////////////////////
 // to change minHeight of body by window resize event
 function liveUserScreenHeight() {
     let userScreenHeight = visualViewport.height + "px";
@@ -17,88 +19,55 @@ function liveUserScreenHeight() {
 
 // to get user cart info from local storage and update the dom
 function getCartInfoFromLocalStorage(){
-    let cartItems = JSON.parse(localStorage.getItem("cartItems"))
+    userBasket = JSON.parse(localStorage.getItem("cartItems"))
 
-    if(cartItems.length){
-        userCartGenerator(cartItems)
+    if(userBasket.length){
+        userCartGenerator(userBasket)
     }
 }
 
-// to update the dom based on user cart info
-function userCartGenerator(cartArray){
+// to update the dom based on user basket info
+function userCartGenerator(basketArray){
     cartBody.innerHTML = ""
+    let counter = 0
 
-    cartArray.forEach(function(item){
-        let cartItem = $.createElement("div")
-        cartItem.className = "cart-item col-12 col-lg-10 d-flex m-auto"
-        
-        let cartItemInfo = $.createElement("div")
-        cartItemInfo.className = "cart-item-info d-flex me-2"
-    
-        let cartItemImg = $.createElement("img")
-        cartItemImg.className = "cart-item-img img-fliud"
-        cartItemImg.setAttribute("src" , item.src)
-    
-        let cartItemTitle = $.createElement("h5")
-        cartItemTitle.className = "cart-item-title m-0 ps-2"
-        cartItemTitle.innerHTML = item.title
-        
-        let cartItemPriceElem = $.createElement("div")
-        cartItemPriceElem.className = "cart-item-price me-2"
-    
-        let cartItemPrice = $.createElement("h5")
-        cartItemPrice.className = "item-price"
-        cartItemPrice.innerHTML = item.price + "$"
-    
-        let cartItemQuantity = $.createElement("div")
-        cartItemQuantity.className = "cart-item-quantity d-flex"
-    
-        let cartItemBtnContainer = $.createElement("div")
-        cartItemBtnContainer.className = "cart-item-btn-container d-flex m-auto"
+    basketArray.forEach(function(item){
+        cartBody.insertAdjacentHTML("beforeend" ,
+          '<div class="cart-item col-12 col-lg-10 d-flex m-auto">'+
+            '<div class="cart-item-info d-flex me-2">'+
+              '<img class="cart-item-img img-fliud" src="'+ item.src +'">'+
+              '<h5 class="cart-item-title m-0 ps-2">'+ item.title +'</h5>'+
+            '</div>'+
+            '<div class="cart-item-price me-2">'+
+              '<h5 class="item-price">'+ item.price + '$' +'</h5>'+
+            '</div>'+ 
+            '<div class="cart-item-quantity d-flex">'+
+              '<div class="cart-item-btn-container d-flex m-auto">'+
+                '<i class="cart-item-plus-btn bi bi-plus" onclick=itemCountPlus('+ item.id +')></i>'+
+                '<span class="cart-item-count text-center my-1">'+ item.count +'</span>'+
+                '<i class="cart-item-trash-btn bi bi-trash trash'+counter+'" onclick="removeCartItem('+ item.id +')"></i>'+
+                '<i class="cart-item-minus-btn bi bi-dash minus'+counter+'" onclick=itemCountMinus('+ item.id +')></i>'+
+              '</div>'+
+            '</div>'+
+          '</div>'+
+          '<hr class="line col-12 col-lg-10 d-flex m-auto my-3">'
+        )
 
-        let cartItemPlusBtn = $.createElement("i")
-        cartItemPlusBtn.className = "cart-item-plus-btn bi bi-plus"
-        cartItemPlusBtn.addEventListener("click" , function(){
-            itemCountPlus(cartArray , item)
-        })
-
-        let cartItemCount = $.createElement("span")
-        cartItemCount.className = "cart-item-count text-center my-1"
-        cartItemCount.innerHTML = item.count
-
-        let cartItemMinusBtn = $.createElement("i")
-        cartItemMinusBtn.className = "cart-item-minus-btn bi bi-dash"
-        cartItemMinusBtn.addEventListener("click" , function(){
-            itemCountMinus(cartArray , item)
-        })
-
-        let cartItemTrashBtn = $.createElement("i")
-        cartItemTrashBtn.className = "cart-item-trash-btn bi bi-trash"
-        cartItemTrashBtn.addEventListener("click" , function(){
-            removeCartItem(cartArray , item)
-        })
+        let cartItemTrashBtn = $.querySelector(".trash"+counter+"")
+        let cartItemMinusBtn = $.querySelector(".minus"+counter+"")
 
         if(item.count !== 1){
             cartItemMinusBtn.style.display = "block"
             cartItemTrashBtn.style.display = "none"
         }
 
-        let line = $.createElement("hr")
-        line.className = "line col-12 col-lg-10 d-flex m-auto my-3"
-
-        cartItem.append(cartItemInfo , cartItemPriceElem , cartItemQuantity)
-        cartItemInfo.append(cartItemImg , cartItemTitle)
-        cartItemPriceElem.append(cartItemPrice)
-        cartItemQuantity.append(cartItemBtnContainer)
-        cartItemBtnContainer.append(cartItemPlusBtn ,cartItemCount,cartItemMinusBtn,cartItemTrashBtn)
-
-        cartBody.append(cartItem , line)
+        counter++
     });
 
-    totalCartPrice(cartArray)
+    totalCartPrice(userBasket)
 }
 
-// to calculate total price of user cart
+// to calculate total price of user basket
 function totalCartPrice(cartArray){
     let finallItemssPrice = 0
 
@@ -112,47 +81,55 @@ function totalCartPrice(cartArray){
 }
 
 // to update the item quantity by +1
-function itemCountPlus(cartArray , item){
-    cartArray.forEach(function(cartItem){
-        if(cartItem.id === item.id && cartItem.count < 10){
-            cartItem.count++
-            return
-        }
-    })
+function itemCountPlus(itemId){
+  let product = userBasket.find(function(cartItem){
+    return cartItem.id === itemId
+  })
 
-    userCartGenerator(cartArray)
-    setCartInfoIntoLocalStorage(cartArray)
-    showAlertAnimation("price-updated" , "Total Price updated")
+  userBasket.forEach(function(cartItem){
+    if(cartItem.id === product.id && cartItem.count <10){
+      cartItem.count++
+      return
+    }
+  })
+
+  userCartGenerator(userBasket)
+  setCartInfoIntoLocalStorage(userBasket)
+  showAlertAnimation("price-updated" , "Total Price updated")
 }
 
 // to update the item quantity by -1
-function itemCountMinus(cartArray , item){
-    cartArray.forEach(function(cartItem){
-        if(cartItem.id === item.id){
-            cartItem.count--
-            return
-        }
-    })
+function itemCountMinus(itemId){
+  let product = userBasket.find(function(cartItem){
+    return cartItem.id === itemId
+  })
 
-    userCartGenerator(cartArray)
-    setCartInfoIntoLocalStorage(cartArray)
+  userBasket.forEach(function(cartItem){
+    if(cartItem.id === product.id){
+      cartItem.count--
+      return
+    }
+  })
+
+    userCartGenerator(userBasket)
+    setCartInfoIntoLocalStorage(userBasket)
     showAlertAnimation("price-updated" , "Total Price updated")
 }
 
-// to remove an item by clicking on trash btn
-function removeCartItem(cartArray , item){
-    let itemIndex = cartArray.findIndex(function(cartItem){
-        return cartItem.id === item.id
+// to remove an item from user basket by clicking on trash btn
+function removeCartItem(itemId){
+    let itemIndex = userBasket.findIndex(function(cartItem){
+        return cartItem.id === itemId
     })
 
-    cartArray.splice(itemIndex , 1)
+    userBasket.splice(itemIndex , 1)
 
-    userCartGenerator(cartArray)
-    setCartInfoIntoLocalStorage(cartArray)
+    userCartGenerator(userBasket)
+    setCartInfoIntoLocalStorage(userBasket)
     showAlertAnimation("item-deleted" , "Item successfully deleted")
 }
 
-// to set user cart info in to the local storage
+// to set user basket info in to the local storage
 function setCartInfoIntoLocalStorage(cartArray){
     localStorage.setItem("cartItems" , JSON.stringify(cartArray))
 }
@@ -177,7 +154,7 @@ function showAlertAnimation(alertClass , alertMassage){
     },6000)
 }
 
-// event listeners //////////////
+// event listeners //////////////////
 window.addEventListener("resize", liveUserScreenHeight);
 window.addEventListener("load", liveUserScreenHeight);
 window.addEventListener("load" , getCartInfoFromLocalStorage);
