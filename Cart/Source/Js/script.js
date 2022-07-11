@@ -174,7 +174,7 @@ function showAlertAnimation(alertClass , alertMassage){
     },4500)
     setTimeout(function(){
       alertElem.remove()
-    },5000)
+    },6000)
 }
 
 // event listeners //////////////
