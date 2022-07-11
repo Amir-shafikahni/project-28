@@ -34,25 +34,25 @@ function userCartGenerator(basketArray) {
 
   basketArray.forEach(function (item) {
     cartBody.insertAdjacentHTML(
-      "beforeend"
-      // '<div class="cart-item col-12 col-lg-10 d-flex m-auto">'+
-      //   '<div class="cart-item-info d-flex me-2">'+
-      //     '<img class="cart-item-img img-fliud" src="'+ item.src +'">'+
-      //     '<h5 class="cart-item-title m-0 ps-2">'+ item.title +'</h5>'+
-      //   '</div>'+
-      //   '<div class="cart-item-price me-2">'+
-      //     '<h5 class="item-price">'+ item.price + '$' +'</h5>'+
-      //   '</div>'+
-      //   '<div class="cart-item-quantity d-flex">'+
-      //     '<div class="cart-item-btn-container d-flex m-auto">'+
-      //       '<i class="cart-item-plus-btn bi bi-plus" onclick=itemCountPlus('+ item.id +')></i>'+
-      //       '<span class="cart-item-count text-center my-1">'+ item.count +'</span>'+
-      //       '<i class="cart-item-trash-btn bi bi-trash trash'+counter+'" onclick="removeCartItem('+ item.id +')"></i>'+
-      //       '<i class="cart-item-minus-btn bi bi-dash minus'+counter+'" onclick=itemCountMinus('+ item.id +')></i>'+
-      //     '</div>'+
-      //   '</div>'+
-      // '</div>'+
-      // '<hr class="line col-12 col-lg-10 d-flex m-auto my-3">'
+      "beforeend" ,
+      '<div class="cart-item col-12 col-lg-10 d-flex m-auto">'+
+        '<div class="cart-item-info d-flex me-2">'+
+          '<img class="cart-item-img img-fliud" src="'+ item.src +'">'+
+          '<h5 class="cart-item-title m-0 ps-2">'+ item.title +'</h5>'+
+        '</div>'+
+        '<div class="cart-item-price me-2">'+
+          '<h5 class="item-price">'+ item.price + '$' +'</h5>'+
+        '</div>'+
+        '<div class="cart-item-quantity d-flex">'+
+          '<div class="cart-item-btn-container d-flex m-auto">'+
+            '<i class="cart-item-plus-btn bi bi-plus" onclick=itemCountPlus('+ item.id +')></i>'+
+            '<span class="cart-item-count text-center my-1">'+ item.count +'</span>'+
+            '<i class="cart-item-trash-btn bi bi-trash trash'+counter+'" onclick="removeCartItem('+ item.id +')"></i>'+
+            '<i class="cart-item-minus-btn bi bi-dash minus'+counter+'" onclick=itemCountMinus('+ item.id +')></i>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<hr class="line col-12 col-lg-10 d-flex m-auto my-3">'
     );
 
     let cartItemTrashBtn = $.querySelector(".trash" + counter + "");
