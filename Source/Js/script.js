@@ -477,9 +477,9 @@ function domUpdater(itemsArray) {
             '<button class="card-item-btn btn btn-outline-primary" title="Add To Cart" onclick=addToBasket('+ card.id +')>'+
               '<i class="card-item-Basket-icon bi bi-cart2"></i>'+
             '</button>'+
-          '</div>'
-        +'</div>'
-      +'</div>'
+          '</div>'+
+        '</div>'+
+      '</div>'
     );
   });
 }
