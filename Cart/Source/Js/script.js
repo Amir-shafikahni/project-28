@@ -42,21 +42,44 @@ function userCartGenerator(basketArray) {
       '</div>'+
       '<div class="cart-item-price me-2">'+
         '<h5 class="item-price">'+ item.price + '$' +'</h5>'+
-      '</div>'+
-      '<div class="cart-item-quantity d-flex">'+
-      '<i class="cart-item-trash-btn bi bi-trash" onclick="removeCartItem('+ item.id+')"></i>'+
-        '<div class="cart-item-btn-container d-flex m-auto">'+
-          '<i class="cart-item-plus-btn bi bi-plus" onclick=itemCountPlus('+ item.id+')></i>'+
-          '<span class="cart-item-count text-center my-1">'+ item.count +'</span>'+
-          '<i class="cart-item-minus-btn bi bi-dash" onclick=itemCountMinus('+ item.id +')></i>'+
-        '</div>'+
       '</div>'
     )
+
+    let cartItemQuantity = $.createElement("div")
+    cartItemQuantity.className = "cart-item-quantity d-flex"
+
+    let cartItemBtnContainer = $.createElement("div")
+    cartItemBtnContainer.className = "cart-item-btn-container d-flex m-auto"
+
+    let cartItemPlusBtn = $.createElement("i")
+    cartItemPlusBtn.className = "cart-item-plus-btn bi bi-plus"
+    cartItemPlusBtn.setAttribute("onclick" , "itemCountPlus("+ item.id+")")
+
+    let cartItemCount = $.createElement("span")
+    cartItemCount.innerHTML = item.count
+    cartItemCount.className = "cart-item-count text-center my-1"
+
+    let cartItemTrashBtn = $.createElement("i")
+    cartItemTrashBtn.className = "cart-item-trash-btn bi bi-trash"
+    cartItemTrashBtn.setAttribute("onclick" , "removeCartItem("+ item.id+")")
+
+    let cartItemMinusBtn = $.createElement("i")
+    cartItemMinusBtn.className = "cart-item-minus-btn bi bi-dash"
+    cartItemMinusBtn.setAttribute("onclick" , "itemCountMinus("+ item.id+")")
+
+    if(item.count > 1){
+      cartItemMinusBtn.style.display = "block"
+      cartItemTrashBtn.style.display = "none"
+    }
+
+    cartItemQuantity.append(cartItemBtnContainer)
+    cartItemBtnContainer.append(cartItemPlusBtn,cartItemCount,cartItemMinusBtn,cartItemTrashBtn)
+    cartItem.append(cartItemQuantity)
 
     let line = $.createElement("hr");
     line.className = "line col-12 col-lg-10 d-flex m-auto my-3";
 
-    cartItemsFragment.append(cartItem, line);
+    cartItemsFragment.append(cartItem,line);
   });
 
   cartBody.append(cartItemsFragment);

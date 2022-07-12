@@ -138,14 +138,8 @@
     margin:auto;
 }
 
-.cart-body .cart-item-trash-btn{
-    transform: scale(1.15);
-    transition: 0.1s;
-    padding: 10px;
-}
-
-.cart-body .cart-item-trash-btn:hover{
-    transform: scale(1.25);
+.cart-body .cart-item-minus-btn{
+    display: none;
 }
 
 .line{
