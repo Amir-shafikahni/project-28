@@ -462,26 +462,32 @@ function shopItemsArraySlicer(start, end) {
 function domUpdater(itemsArray) {
   mainCardContainerRow.innerHTML = "";
 
+  let cardsFragment = $.createDocumentFragment()
+
   itemsArray.forEach(function (card) {
-    mainCardContainerRow.insertAdjacentHTML(
-      "beforeend" ,
-      '<div class="card-container col-12 col-md-6 col-lg-4 mb-4">'+
-        '<div class="card-item">'+
-          '<div class="card-item-img-container w-100">'+
-            '<img class="card-item-img img-fluid w-100" src="' + card.src + '">'+
-          '</div>'+
-          '<div class="card-item-info m-3">'+
-            '<h5 class="card-item-title">'+ card.title +'</h5>'+
-            '<div class="card-item-detail my-2">'+ card.detail +'</div>'+
-            '<h6 class="card-item-price text-end me-3 mt-3">'+ card.price + '$' +'</h6>'+
-            '<button class="card-item-btn btn btn-outline-primary" title="Add To Cart" onclick=addToBasket('+ card.id +')>'+
-              '<i class="card-item-Basket-icon bi bi-cart2"></i>'+
-            '</button>'+
-          '</div>'+
+    let cartContainer = $.createElement("div")
+    cartContainer.className = "card-container col-12 col-md-6 col-lg-4 mb-4"
+
+    cartContainer.insertAdjacentHTML("beforeend" , 
+      '<div class="card-item">'+
+        '<div class="card-item-img-container w-100">'+
+          '<img class="card-item-img img-fluid w-100" src="' + card.src + '">'+
+        '</div>'+
+        '<div class="card-item-info m-3">'+
+          '<h5 class="card-item-title">'+ card.title +'</h5>'+
+          '<div class="card-item-detail my-2">'+ card.detail +'</div>'+
+          '<h6 class="card-item-price text-end me-3 mt-3">'+ card.price + '$' +'</h6>'+
+          '<button class="card-item-btn btn btn-outline-primary" title="Add To Cart" onclick=addToBasket('+ card.id +')>'+
+            '<i class="card-item-Basket-icon bi bi-cart2"></i>'+
+          '</button>'+
         '</div>'+
       '</div>'
-    );
+    )
+
+    cardsFragment.append(cartContainer)
   });
+
+  mainCardContainerRow.append(cardsFragment)
 }
 
 // to update the pagiantion Btn numbers based on the main array lenght
