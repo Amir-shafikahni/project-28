@@ -461,7 +461,6 @@ function shopItemsArraySlicer(start, end) {
 //make a template and append it to dom
 function domUpdater(itemsArray) {
   mainCardContainerRow.innerHTML = "";
-
   let cardsFragment = $.createDocumentFragment()
 
   itemsArray.forEach(function (card) {
