@@ -10,7 +10,6 @@ const cartItemTotalPrice = $.querySelector(".item-total-price");
 
 let userBasket = [];
 
-
 // functions //////////////////////
 // to change minHeight of body by window resize event
 function liveUserScreenHeight() {
@@ -29,42 +28,38 @@ function getCartInfoFromLocalStorage() {
 
 // to update the dom based on user basket info
 function userCartGenerator(basketArray) {
+  let cartItemsFragment = $.createDocumentFragment();
   cartBody.innerHTML = "";
-  let counter = 0;
 
   basketArray.forEach(function (item) {
-    cartBody.insertAdjacentHTML(
-      "beforeend" ,
-      '<div class="cart-item col-12 col-lg-10 d-flex m-auto">'+
-        '<div class="cart-item-info d-flex me-2">'+
-          '<img class="cart-item-img img-fliud" src="'+ item.src +'">'+
-          '<h5 class="cart-item-title m-0 ps-2">'+ item.title +'</h5>'+
-        '</div>'+
-        '<div class="cart-item-price me-2">'+
-          '<h5 class="item-price">'+ item.price + '$' +'</h5>'+
-        '</div>'+
-        '<div class="cart-item-quantity d-flex">'+
-          '<div class="cart-item-btn-container d-flex m-auto">'+
-            '<i class="cart-item-plus-btn bi bi-plus" onclick=itemCountPlus('+ item.id +')></i>'+
-            '<span class="cart-item-count text-center my-1">'+ item.count +'</span>'+
-            '<i class="cart-item-trash-btn bi bi-trash trash'+counter+'" onclick="removeCartItem('+ item.id +')"></i>'+
-            '<i class="cart-item-minus-btn bi bi-dash minus'+counter+'" onclick=itemCountMinus('+ item.id +')></i>'+
-          '</div>'+
-        '</div>'+
+    let cartItem = $.createElement("div");
+    cartItem.className = "cart-item col-12 col-lg-10 d-flex m-auto";
+
+    cartItem.insertAdjacentHTML("beforeend" ,
+     '<div class="cart-item-info d-flex me-2">'+
+        '<img class="cart-item-img img-fliud" src="'+ item.src +'">'+
+        '<h5 class="cart-item-title m-0 ps-2">'+ item.title +'</h5>'+
       '</div>'+
-      '<hr class="line col-12 col-lg-10 d-flex m-auto my-3">'
-    );
+      '<div class="cart-item-price me-2">'+
+        '<h5 class="item-price">'+ item.price + '$' +'</h5>'+
+      '</div>'+
+      '<div class="cart-item-quantity d-flex">'+
+      '<i class="cart-item-trash-btn bi bi-trash" onclick="removeCartItem('+ item.id+')"></i>'+
+        '<div class="cart-item-btn-container d-flex m-auto">'+
+          '<i class="cart-item-plus-btn bi bi-plus" onclick=itemCountPlus('+ item.id+')></i>'+
+          '<span class="cart-item-count text-center my-1">'+ item.count +'</span>'+
+          '<i class="cart-item-minus-btn bi bi-dash" onclick=itemCountMinus('+ item.id +')></i>'+
+        '</div>'+
+      '</div>'
+    )
 
-    let cartItemTrashBtn = $.querySelector(".trash" + counter + "");
-    let cartItemMinusBtn = $.querySelector(".minus" + counter + "");
+    let line = $.createElement("hr");
+    line.className = "line col-12 col-lg-10 d-flex m-auto my-3";
 
-    if (item.count !== 1) {
-      cartItemMinusBtn.style.display = "block";
-      cartItemTrashBtn.style.display = "none";
-    }
-
-    counter++;
+    cartItemsFragment.append(cartItem, line);
   });
+
+  cartBody.append(cartItemsFragment);
 
   totalCartPrice(userBasket);
 }
@@ -107,7 +102,7 @@ function itemCountMinus(itemId) {
   });
 
   userBasket.forEach(function (cartItem) {
-    if (cartItem.id === product.id) {
+    if (cartItem.id === product.id && cartItem.count > 1) {
       cartItem.count--;
       return;
     }
@@ -119,7 +114,7 @@ function itemCountMinus(itemId) {
 }
 
 // to remove an item from user basket by clicking on trash btn
-function removeCartItem(itemId) {
+function removeCartItem(itemId, event) {
   let itemIndex = userBasket.findIndex(function (cartItem) {
     return cartItem.id === itemId;
   });
