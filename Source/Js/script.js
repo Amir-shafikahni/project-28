@@ -489,7 +489,7 @@ function domUpdater(itemsArray) {
   mainCardContainerRow.append(cardsFragment)
 }
 
-// to update the pagiantion Btn numbers based on the main array lenght
+// to update the pagiantion Btn numbers based on the main array length
 // and then append them to dom
 function paginationBtnsUpdater() {
   let paginationBtnsCount = Math.ceil(shopItemsArray.length / rowCounter);
