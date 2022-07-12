@@ -28,9 +28,9 @@ function getCartInfoFromLocalStorage() {
 
 // to update the dom based on user basket info
 function userCartGenerator(basketArray) {
-  let cartItemsFragment = $.createDocumentFragment();
   cartBody.innerHTML = "";
-
+  let cartItemsFragment = $.createDocumentFragment();
+  
   basketArray.forEach(function (item) {
     let cartItem = $.createElement("div");
     cartItem.className = "cart-item col-12 col-lg-10 d-flex m-auto";
@@ -67,17 +67,17 @@ function userCartGenerator(basketArray) {
     cartItemMinusBtn.className = "cart-item-minus-btn bi bi-dash"
     cartItemMinusBtn.setAttribute("onclick" , "itemCountMinus("+ item.id+")")
 
+    let line = $.createElement("hr");
+    line.className = "line col-12 col-lg-10 d-flex m-auto my-3";
+
     if(item.count > 1){
       cartItemMinusBtn.style.display = "block"
       cartItemTrashBtn.style.display = "none"
     }
 
-    cartItemQuantity.append(cartItemBtnContainer)
     cartItemBtnContainer.append(cartItemPlusBtn,cartItemCount,cartItemMinusBtn,cartItemTrashBtn)
+    cartItemQuantity.append(cartItemBtnContainer)
     cartItem.append(cartItemQuantity)
-
-    let line = $.createElement("hr");
-    line.className = "line col-12 col-lg-10 d-flex m-auto my-3";
 
     cartItemsFragment.append(cartItem,line);
   });
@@ -88,10 +88,10 @@ function userCartGenerator(basketArray) {
 }
 
 // to calculate total price of user basket
-function totalCartPrice(cartArray) {
+function totalCartPrice(basket) {
   let finallItemssPrice = 0;
 
-  cartArray.forEach(function (item) {
+  basket.forEach(function (item) {
     let itemPrice = item.price * item.count;
 
     finallItemssPrice += itemPrice;
@@ -102,13 +102,13 @@ function totalCartPrice(cartArray) {
 
 // to update the item quantity by +1
 function itemCountPlus(itemId) {
-  let product = userBasket.find(function (cartItem) {
-    return cartItem.id === itemId;
+  let product = userBasket.find(function (item) {
+    return item.id === itemId;
   });
 
-  userBasket.forEach(function (cartItem) {
-    if (cartItem.id === product.id && cartItem.count < 10) {
-      cartItem.count++;
+  userBasket.forEach(function (item) {
+    if (item.id === product.id && item.count < 10) {
+      item.count++;
       return;
     }
   });
@@ -120,13 +120,13 @@ function itemCountPlus(itemId) {
 
 // to update the item quantity by -1
 function itemCountMinus(itemId) {
-  let product = userBasket.find(function (cartItem) {
-    return cartItem.id === itemId;
+  let product = userBasket.find(function (item) {
+    return item.id === itemId;
   });
 
-  userBasket.forEach(function (cartItem) {
-    if (cartItem.id === product.id && cartItem.count > 1) {
-      cartItem.count--;
+  userBasket.forEach(function (item) {
+    if (item.id === product.id) {
+      item.count--;
       return;
     }
   });
@@ -137,12 +137,10 @@ function itemCountMinus(itemId) {
 }
 
 // to remove an item from user basket by clicking on trash btn
-function removeCartItem(itemId, event) {
-  let itemIndex = userBasket.findIndex(function (cartItem) {
-    return cartItem.id === itemId;
-  });
-
-  userBasket.splice(itemIndex, 1);
+function removeCartItem(itemId) {
+  userBasket = userBasket.filter(function(item){
+    return item.id !== itemId
+  })
 
   userCartGenerator(userBasket);
   setCartInfoIntoLocalStorage(userBasket);
@@ -150,8 +148,8 @@ function removeCartItem(itemId, event) {
 }
 
 // to set user basket info in to the local storage
-function setCartInfoIntoLocalStorage(cartArray) {
-  localStorage.setItem("cartItems", JSON.stringify(cartArray));
+function setCartInfoIntoLocalStorage(basket) {
+  localStorage.setItem("cartItems", JSON.stringify(basket));
 }
 
 // to make an alert template based on alert classname and its masssage
